@@ -55,9 +55,6 @@ trainData <- cbind(features_extract, y, subject)
 #Bind all data
 allData <- rbind(testData, trainData)
 
-#labels1 <- c("Subject", "Activity_ID", "Activity_Name")
-#labels2 <- setdiff(colnames(allData), labels1)
-
 meltedData <- melt(allData, id = c("Subject", "Activity_Name"), measure.vars = colnames(features_extract))
 
 finalData <- dcast(meltedData, Subject + Activity_Name ~ variable, mean)
